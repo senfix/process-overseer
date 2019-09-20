@@ -8,8 +8,6 @@ import (
 	"strconv"
 
 	"github.com/gorilla/mux"
-	"github.com/senfix/web/errors"
-	"github.com/senfix/web/response"
 )
 
 func GetParamString(r *http.Request, name string) (value string, err error) {
@@ -24,7 +22,7 @@ func GetParamString(r *http.Request, name string) (value string, err error) {
 	keys, ok := r.URL.Query()[name]
 
 	if !ok || len(keys[0]) < 1 {
-		err = errors.UrlMissingParam.Val(name)
+		err = UrlMissingParam.Val(name)
 		return
 	}
 	value = keys[0]
@@ -60,5 +58,5 @@ func Decode(w http.ResponseWriter, body io.Reader, data interface{}) (err error)
 
 func EmitError(w http.ResponseWriter, code int, err error) {
 	w.WriteHeader(code)
-	json.NewEncoder(w).Encode(&response.Error{code, fmt.Sprintf("%v", err)})
+	json.NewEncoder(w).Encode(&Error{code, fmt.Sprintf("%v", err)})
 }

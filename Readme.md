@@ -1,5 +1,10 @@
 ####Process overseer
 
+####Build
+
+`dep ensure`
+`make build`
+
 ###Setup 
 #####Mac OSX
 

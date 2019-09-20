@@ -8,12 +8,10 @@ import (
 
 	"github.com/gorilla/handlers"
 	"github.com/gorilla/mux"
-	"github.com/senfix/logger"
 )
 
 type Server struct {
 	http.Server
-	logger      logger.Log
 	shutdownReq chan bool
 	running     bool
 }
