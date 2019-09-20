@@ -1,12 +1,12 @@
-####Process overseer
+# Process overseer
 
-####Build
+## Build
 
 `dep ensure`
 `make build`
 
-###Setup 
-#####Mac OSX
+## Setup 
+### Mac OSX
 
 Create new service `custom.process.overseer.plist`
 
@@ -43,4 +43,4 @@ to load configuration into lauchctl
 sudo launchctl load custom.process.overseer.plist
 ````
 
-#####Linux
+### Linux
