@@ -1,0 +1,82 @@
+openapi: 3.0.1
+info:
+  version: "1.0.0"
+  title: "Process overseer"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+
+paths:
+  /rest/command:
+    get:
+      tags:
+        - "Commands"
+      summary: "Return all commands in system"
+      description: ""
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Command"
+    post:
+      tags:
+        - "Commands"
+      summary: "Insert or update command base on id"
+      description: ""
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Command"
+  
+  /rest/command/{id}:
+    get:
+      tags:
+        - "Commands"
+      summary: "Return all commands in system"
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+      description: ""
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Command"
+
+components:
+  schemas:
+    Command:
+      type: object
+      properties:
+        id:
+          type: string
+        enabled:
+          type: boolean
+        workers:
+          type: integer
+        keep_alive:
+          type: boolean
+        retry_delay:
+          type: string
+        work_dir:
+          type: string
+        exec:
+          type: string
+        args:
+          type: array
+          items:
+            type: string
