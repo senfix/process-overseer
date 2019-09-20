@@ -1,5 +1,10 @@
 # Process overseer
 
+Simple application what spawn processes and keeps them alive. 
+It have easy option for scale process into more workers. 
+
+Just setup overseer as service in your system and use REST API or config storage.json to control spawned processes.   
+
 ## Build
 
 ````
