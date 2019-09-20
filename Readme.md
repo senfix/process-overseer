@@ -2,8 +2,12 @@
 
 ## Build
 
-`dep ensure`
-`make build`
+````
+dep ensure
+make build
+````
+## Start
+`./cmd/process_overseer --listen :3100 --emit-delay 500 --storage ./`
 
 ## Setup 
 ### Mac OSX
